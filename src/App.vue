@@ -1,10 +1,13 @@
 <script setup lang="ts">
+import { useTheme } from './stores/theme'
 import HeaderBar from './components/HeaderBar.vue'
 import ContentBoxVue from './components/ContentBox.vue'
+
+const theme = useTheme()
 </script>
 
 <template>
-  <div class="main">
+  <div class="main" :data-theme="theme.value">
     <HeaderBar></HeaderBar>
     <ContentBoxVue class="content-min-h"></ContentBoxVue>
   </div>

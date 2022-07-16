@@ -1,7 +1,7 @@
 <template>
   <header class="h-16">
     <div class="mx-20 h-full flex">
-      <span class="font-rd text-4xl flex-initial leading-4rem grow">
+      <span class="font-rd text-4xl flex-initial leading-4rem grow select-none">
         BYOP
       </span>
       <span class="flex-initial flex items-center">
@@ -48,9 +48,16 @@
 
 <script setup lang="ts">
 import { name } from '../../package.json'
-import { ref } from 'vue'
-const themeStatus = ref(true)
+import { computed } from 'vue'
+import { useTheme } from '@/stores/theme'
+
+const theme = useTheme()
+
+const themeStatus = computed(() => {
+  return theme.value === 'light'
+})
+// const themeStatus = ref(true)
 function toggleTheme() {
-  themeStatus.value = !themeStatus.value
+  theme.toggleTheme()
 }
 </script>

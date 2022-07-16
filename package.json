@@ -9,6 +9,7 @@
     "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx"
   },
   "dependencies": {
+    "pinia": "^2.0.16",
     "vue": "^3.2.25"
   },
   "devDependencies": {
