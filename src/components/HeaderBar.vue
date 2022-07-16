@@ -1,5 +1,5 @@
 <template>
-  <header class="shadow h-16">
+  <header class="h-16">
     <div class="mx-20 h-full flex">
       <span class="font-rd text-4xl flex-initial leading-4rem grow">
         BYOP

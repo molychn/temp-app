@@ -4,4 +4,14 @@
 
 @import url('https://fonts.font.im/css?family=Anton|Quicksand|Ruslan+Display');
 
-$test-color: red;
+:root {
+  --theme-bg: #fff;
+  --theme-color: #000;
+  --theme-shadow: initial;
+}
+
+[data-theme='dark'] {
+  --theme-bg: #000;
+  --theme-color: #fff;
+  --theme-shadow: #fff;
+}
