@@ -56,7 +56,6 @@ const theme = useTheme()
 const themeStatus = computed(() => {
   return theme.value === 'light'
 })
-// const themeStatus = ref(true)
 function toggleTheme() {
   theme.toggleTheme()
 }

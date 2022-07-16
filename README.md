@@ -95,3 +95,54 @@ import '@purge-icons/generated'
 
 - 根据iconify的使用方式可以封装一个全局组件
 - iconify[图标检索](https://icones.js.org/)
+
+# [Pinia](https://pinia.vuejs.org/)
+
+使用 Pinia 来负责 Vue 项目中的状态管理，至于它跟 Vuex 的对比，在官方文档中有所提及，主要在于当 Vue 实现 Composition Api 时作为尝试已将 Vuex 的大多数想法实现，所以干脆取而代之。
+
+在使用上也符合 Composition-API的风格，我在尝试的过程中觉得对于每个模块的使用可以分离出来（每个 store 可以使用 defineStore 来进行定义，而 Vuex 在我的使用过程中一直都是将所有模块引入到一个 index 文件中进行配置，在使用上我觉得是相对顺手的）。
+
+- 安装 Pinia
+
+```
+pnpm add pinia -S
+```
+
+- 在 store 目录内定义一个主题模块
+
+```
+// /store/theme.ts
+import { defineStore } from 'pinia'
+
+export const useTheme = defineStore('theme', {
+  state: () => {
+    return {
+      value: 'light'
+    }
+  },
+  actions: {
+    toggleTheme() {
+      this.value = this.value === 'light' ? 'dark' : 'light'
+    }
+  }
+})
+```
+
+- 在需要进行主题切换的位置上引入
+
+```
+// ...
+import { useTheme } from '@/stores/theme'
+
+const theme = useTheme()
+
+const themeStatus = computed(() => {
+  return theme.value === 'light'
+})
+
+function toggleTheme() {
+  theme.toggleTheme()
+}
+
+// ...
+```
