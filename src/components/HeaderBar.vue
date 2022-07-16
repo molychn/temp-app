@@ -5,18 +5,30 @@
         BYOP
       </span>
       <span class="flex-initial flex items-center">
-        <icon-box
-          icon="uiw:github-o"
+        <a
+          :href="'https://github.com/molychn/' + name"
+          target="_blank"
+          rel="noopener noreferrer"
           class="basis-1/4 mx-5 cursor-pointer"
-        ></icon-box>
-        <icon-box
-          icon="simple-icons:bloglovin"
+        >
+          <icon-box icon="uiw:github-o" class="mx-5"></icon-box>
+        </a>
+        <a
+          href="https://juejin.cn/user/1802854799785736/posts"
+          target="_blank"
+          rel="noopener noreferrer"
           class="basis-1/4 mx-5 cursor-pointer"
-        ></icon-box>
-        <icon-box
-          icon="cib:about-me"
+        >
+          <icon-box icon="simple-icons:bloglovin" class="mx-5"></icon-box>
+        </a>
+        <a
+          href="https://github.com/molychn"
+          target="_blank"
+          rel="noopener noreferrer"
           class="basis-1/4 mx-5 cursor-pointer"
-        ></icon-box>
+        >
+          <icon-box icon="cib:about-me" class="mx-5"></icon-box>
+        </a>
         <icon-box
           v-show="themeStatus"
           icon="material-symbols:wb-sunny-outline"
@@ -35,6 +47,7 @@
 </template>
 
 <script setup lang="ts">
+import { name } from '../../package.json'
 import { ref } from 'vue'
 const themeStatus = ref(true)
 function toggleTheme() {
